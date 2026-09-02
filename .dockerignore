@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.env
+.git/
+.github/
+.DS_Store
+coverage.xml
+htmlcov/
+qdrant_storage/
+tests/
+docs/

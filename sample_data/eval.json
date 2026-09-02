@@ -1,0 +1,34 @@
+[
+  {
+    "question": "What does the Inference Gateway depend on and how is it monitored?",
+    "expected_sources": ["platform.md"],
+    "expected_keywords": ["GPU Cluster", "Prometheus"]
+  },
+  {
+    "question": "Which databases are used by the Retrieval Service and what does each store?",
+    "expected_sources": ["data_pipeline.md"],
+    "expected_keywords": ["Qdrant", "Neo4j"]
+  },
+  {
+    "question": "What should be evaluated before changing models or retrieval parameters?",
+    "expected_sources": ["reliability.md"],
+    "expected_keywords": ["regression", "evaluation"]
+  },
+  {
+    "question": "What production security controls are recommended for the API?",
+    "expected_sources": ["security.md"],
+    "expected_keywords": ["TLS", "least-privilege", "audit"]
+  },
+  {
+    "question": "What monitors the platform that the GPU Cluster runs on?",
+    "expected_sources": ["platform.md"],
+    "expected_keywords": ["Prometheus"],
+    "requires_hops": 2
+  },
+  {
+    "question": "Which tool monitors the infrastructure that powers the Embedding Cache?",
+    "expected_sources": ["data_pipeline.md"],
+    "expected_keywords": ["Datadog"],
+    "requires_hops": 3
+  }
+]

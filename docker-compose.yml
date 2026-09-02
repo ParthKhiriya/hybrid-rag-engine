@@ -1,0 +1,36 @@
+services:
+  neo4j:
+    image: neo4j:5.26.29-community
+    environment:
+      NEO4J_AUTH: neo4j/hybrid-rag-demo
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    volumes:
+      - neo4j_data:/data
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:7474"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  qdrant:
+    image: qdrant/qdrant:v1.15.4
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - qdrant_data:/qdrant/storage
+
+  api:
+    build: .
+    env_file: .env
+    ports:
+      - "8000:8000"
+    depends_on:
+      - neo4j
+      - qdrant
+
+volumes:
+  neo4j_data:
+  qdrant_data:
